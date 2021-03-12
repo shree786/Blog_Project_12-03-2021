@@ -1,0 +1,17 @@
+<ul style="list-style-type:none;" >
+  <% @articles.each do |article| %>
+    <li>
+      <%
+=begin%>
+ <%= link_to article.title, article %> 
+<%
+=end%>
+    
+      <%= article.body %>
+      <%= link_to "Edit", edit_article_path(@articles) %>
+      <%= link_to "Destroy", article_path(@articles),
+                  method: :delete,
+                  data: { confirm: "sure you want?" } %>
+    </li>
+  <% end %>
+</ul>
